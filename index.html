@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shloke 🎂</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #090909;
+    color: #f5f0e8;
+    font-family: 'DM Mono', monospace;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ---------------- INTRO ---------------- */
+
+.intro {
+    text-align: center;
+    max-width: 700px;
+}
+
+.small {
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 9vw, 90px);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+button {
+    border: 1px solid #555;
+    background: transparent;
+    color: white;
+    padding: 14px 25px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+.loading {
+    width: 300px;
+    max-width: 90%;
+    height: 4px;
+    background: #222;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background: white;
+    animation: loading 2.5s forwards;
+}
+
+@keyframes loading {
+    to { width: 100%; }
+}
+
+/* ---------------- GENERAL ---------------- */
+
+.container {
+    width: 900px;
+    max-width: 95%;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 7vw, 65px);
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+/* ---------------- PROFILE ---------------- */
+
+.profile {
+    border: 1px solid #333;
+    padding: 35px;
+    background: #0e0e0e;
+    position: relative;
+}
+
+.stamp {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    border: 1px solid #777;
+    padding: 8px 12px;
+    font-size: 10px;
+    color: #aaa;
+    transform: rotate(5deg);
+}
+
+.profile-row {
+    display: flex;
+    border-bottom: 1px solid #252525;
+    padding: 18px 0;
+    gap: 30px;
+}
+
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    width: 180px;
+    color: #666;
+}
+
+.value {
+    color: #eee;
+}
+
+/* ---------------- AWARDS ---------------- */
+
+.awards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.award {
+    border: 1px solid #292929;
+    padding: 28px;
+    background: #101010;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.award:hover {
+    border-color: #777;
+    transform: translateY(-5px);
+}
+
+.trophy {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.award h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.award p {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* ---------------- LETTER ---------------- */
+
+.letter-box {
+    border: 1px solid #333;
+    background: #101010;
+    padding: 45px;
+    line-height: 2;
+    color: #ccc;
+    position: relative;
+}
+
+.letter-box::before {
+    content: "CLASSIFIED";
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #555;
+}
+
+.letter-box p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+/* ---------------- CAKE ---------------- */
+
+.final {
+    text-align: center;
+}
+
+.final h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 8vw, 85px);
+}
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    margin: 50px auto 35px;
+}
+
+.layer {
+    position: absolute;
+    width: 220px;
+    height: 55px;
+    background: #ddd;
+    left: 0;
+    border-radius: 10px;
+}
+
+.layer.one {
+    bottom: 0;
+}
+
+.layer.two {
+    bottom: 42px;
+    width: 185px;
+    left: 18px;
+}
+
+.layer.three {
+    bottom: 80px;
+    width: 145px;
+    left: 38px;
+}
+
+.candle {
+    position: absolute;
+    bottom: 125px;
+    width: 8px;
+    height: 35px;
+    background: #aaa;
+    border-radius: 3px;
+}
+
+.candle:nth-child(4) {
+    left: 78px;
+}
+
+.candle:nth-child(5) {
+    left: 106px;
+}
+
+.candle:nth-child(6) {
+    left: 134px;
+}
+
+.flame {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50% 50% 50% 50%;
+    top: -17px;
+    left: -2px;
+    box-shadow: 0 0 15px white;
+    animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: scale(.8); }
+    to { transform: scale(1.1); }
+}
+
+.hidden {
+    display: none;
+}
+
+.final-message {
+    color: #888;
+    margin-top: 20px;
+}
+
+/* ---------------- NAV ---------------- */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+/* ---------------- CONFETTI ---------------- */
+
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 14px;
+    top: -20px;
+    z-index: 100;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width: 650px) {
+
+    .awards {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-row {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .label {
+        width: auto;
+    }
+
+    .letter-box {
+        padding: 30px 22px;
+    }
+
+    .stamp {
+        position: static;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= INTRO ================= -->
+
+<section class="screen active" id="intro">
+    <div class="intro">
+
+        <div class="small">CLASSIFIED // PERSONAL ARCHIVE</div>
+
+        <h1>THE SHLOKE<br>ARCHIVES.</h1>
+
+        <p class="subtitle">
+            A highly confidential record concerning<br>
+            one particular birthday boy.
+        </p>
+
+        <div class="loading">
+            <div class="loading-bar"></div>
+        </div>
+
+        <p class="small">IDENTIFYING SUBJECT...</p>
+
+        <button onclick="next('profile')">
+            ENTER ARCHIVES →
+        </button>
+
+    </div>
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="screen" id="profile">
+    <div class="container">
+
+        <div class="small">FILE NO. 001</div>
+
+        <h1 class="page-title">Subject: Shloke</h1>
+        <p class="page-subtitle">CONFIDENTIAL PERSONNEL FILE</p>
+
+        <div class="profile">
+
+            <div class="stamp">CLASSIFIED</div>
+
+            <div class="profile-row">
+                <div class="label">NAME</div>
+                <div class="value">Shloke</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">CURRENT STATUS</div>
+                <div class="value">Birthday Boy 🎂</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">AGE</div>
+                <div class="value">[ CLASSIFIED INFORMATION ]</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">THREAT LEVEL</div>
+                <div class="value">Depends on the day.</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">KNOWN HABIT</div>
+                <div class="value">Being Shloke.</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">OVERALL ASSESSMENT</div>
+                <div class="value">Surprisingly tolerable.</div>
+            </div>
+
+        </div>
+
+        <div class="nav">
+            <span></span>
+            <button onclick="next('awards')">NEXT FILE →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= AWARDS ================= -->
+
+<section class="screen" id="awards">
+    <div class="container">
+
+        <div class="small">FILE NO. 002</div>
+
+        <h1 class="page-title">The Shloke Awards.</h1>
+
+        <p class="page-subtitle">
+            Officially recognised achievements. Probably.
+        </p>
+
+        <div class="awards">
+
+            <div class="award">
+                <div class="trophy">🏆</div>
+                <h3>Most Likely To Say Something Out Of Pocket</h3>
+                <p>
+                    A remarkable achievement that has been demonstrated
+                    on numerous occasions.
+                </p>
+            </div>
+
+            <div class="award">
+                <div class="trophy">🏆</div>
+                <h3>Professional Time-Waster</h3>
+                <p>
+                    Somehow manages to turn a five-minute conversation
+                    into an entire event.
+                </p>
+            </div>
+
+            <div class="award">
+                <div class="trophy">🏆</div>
+                <h3>Questionable Decisions Award</h3>
+                <p>
+                    For consistently keeping everyone wondering:
+                    "Why would you do that?"
+                </p>
+            </div>
+
+            <div class="award">
+                <div class="trophy">🏆</div>
+                <h3>Best Supporting Character</h3>
+                <p>
+                    For appearing in the plot often enough to become
+                    impossible to remove.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="nav">
+            <button onclick="next('profile')">← BACK</button>
+            <button onclick="next('letter')">NEXT →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= LETTER ================= -->
+
+<section class="screen" id="letter">
+    <div class="container">
+
+        <div class="small">FINAL FILE</div>
+
+        <h1 class="page-title">One Last Thing.</h1>
+
+        <p class="page-subtitle">
+            Removing the jokes for approximately two minutes.
+        </p>
+
+        <div class="letter-box">
+
+            <p>
+                Happy Birthday, Shloke! 🎂
+            </p>
+
+            <p>
+                Okay, enough of the highly professional investigation.
+                I just wanted to say that I hope you have an amazing
+                birthday and an even better year ahead.
+            </p>
+
+            <p>
+                I'm genuinely glad that you're my friend, and I hope
+                we get to make a lot more random memories, stupid jokes,
+                and questionable decisions together.
+            </p>
+
+            <p>
+                You deserve a really good year, so I hope this one
+                brings you plenty of things that make you happy.
+            </p>
+
+            <p>
+                Anyway, that's enough emotional content for one website.
+                Don't get used to it.
+            </p>
+
+            <div class="signature">
+                — from your favourite person* ♡
+            </div>
+
+            <p style="font-size:10px;color:#555;">
+                *Source of this claim has not been independently verified.
+            </p>
+
+        </div>
+
+        <div class="nav">
+            <button onclick="next('awards')">← BACK</button>
+            <button onclick="next('final')">ONE LAST SURPRISE →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= FINAL ================= -->
+
+<section class="screen" id="final">
+    <div class="final">
+
+        <div class="small">ARCHIVE COMPLETE</div>
+
+        <h1>Happy Birthday,<br>Shloke! 🎉</h1>
+
+        <div class="cake">
+
+            <div class="layer one"></div>
+            <div class="layer two"></div>
+            <div class="layer three"></div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+        </div>
+
+        <button onclick="blowCandles()">
+            MAKE A WISH ✨
+        </button>
+
+        <p class="final-message" id="finalMessage">
+            Click when you're ready.
+        </p>
+
+    </div>
+</section>
+
+
+<script>
+
+function next(id) {
+
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+function blowCandles() {
+
+    document.querySelectorAll('.flame').forEach(flame => {
+        flame.style.display = 'none';
+    });
+
+    document.getElementById('finalMessage').innerHTML =
+        "Wish made. 🎂 Now go have the best birthday.";
+
+    createConfetti();
+}
+
+
+function createConfetti() {
+
+    for(let i = 0; i < 100; i++) {
+
+        const confetti = document.createElement('div');
+
+        confetti.classList.add('confetti');
+
+        confetti.style.left = Math.random() * 100 + 'vw';
+
+        confetti.style.animationDelay =
+            Math.random() * 1.5 + 's';
+
+        confetti.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 4500);
+    }
+}
+
+</script>
+
+</body>
+</html>
